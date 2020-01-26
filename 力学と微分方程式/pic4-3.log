@@ -1,0 +1,91 @@
+This is pTeX, Version p2.1.5.beta12, based on TeX, Version 3.14159 (SJIS) (Web2c 7.0) (format=platex 97.8.16)  30 SEP 2004 00:23
+**pic4-3.tex
+(pic4-3.tex
+pLaTeX2e <1997/07/02>+2 (based on LaTeX2e <1997/06/01> patch level 0)
+(c:/usr/local/share/texmf/tex/platex/base/jarticle.cls
+Document Class: jarticle 1997/07/08 v1.1f Standard pLaTeX class
+\c@@paper=\count81
+(c:/usr/local/share/texmf/tex/platex/base/jsize10.clo
+File: jsize10.clo 1997/07/08 v1.1f Standard pLaTeX file (size option)
+)
+\c@part=\count82
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@subparagraph=\count87
+\c@figure=\count88
+\c@table=\count89
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 604.
+LaTeX Info: Redefining \mathrm on input line 606.
+LaTeX Info: Redefining \mathbf on input line 607.
+\toclineskip=\dimen118
+\@lnumwidth=\dimen119
+\bibindent=\dimen120
+)
+(c:/usr/local/share/texmf/tex/latex/misc/epic.sty
+Enhancements to Picture Environment. Version 1.2 - Released June 1, 1986
+\@@multicnt=\count90
+\d@lta=\count91
+\@delta=\dimen121
+\@@delta=\dimen122
+\@gridcnt=\count92
+\@joinkind=\count93
+\@dotgap=\dimen123
+\@ddotgap=\dimen124
+\@x@diff=\count94
+\@y@diff=\count95
+\x@diff=\dimen125
+\y@diff=\dimen126
+\@dotbox=\box41
+\num@segments=\count96
+\num@segmentsi=\count97
+\@datafile=\read1
+) (c:/usr/local/share/texmf/tex/latex/misc/eepic.sty
+Extension to Epic and LaTeX. Version 1.1b - Released Febrary 7, 1988
+\@gphlinewidth=\count98
+\@eepictcnt=\count99
+\@tempdimc=\dimen127
+\maxovaldiam=\dimen128
+\@filltype=\box42
+) (pic4-3.aux)
+\openout1 = `pic4-3.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+
+Overfull \hbox (28.65941pt too wide) in paragraph at lines 432--433
+ [] 
+ []
+
+[1
+
+] (pic4-3.aux) ) 
+Here is how much of TeX's memory you used:
+ 383 strings out of 10659
+ 3820 string characters out of 44946
+ 56521 words of memory out of 263001
+ 3540 multiletter control sequences out of 10000+0
+ 7519 words of font info for 31 fonts, out of 100000 for 500
+ 14 hyphenation exceptions out of 659
+ 22i,4n,19p,140b,280s stack positions out of 300i,50n,60p,3000b,4000s
+
+Output written on pic4-3.dvi (1 page, 15176 bytes).

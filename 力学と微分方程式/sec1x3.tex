@@ -1,0 +1,111 @@
+\section{初期値問題}
+
+古典力学の場合，ある時刻$t_0$において位置$q_0$と速度$v_0$が与えられれば，
+運動は微分方程式からただ１通りにきまることが期待される．
+
+一般に，$\R^n$値関数$f(t,x)$が$R^{n+1}$内の領域$D$で定義され，$(t_0,x_0)\in	D$が
+与えられたとき，常微分方程式
+\begin{equation}
+	\frac{dx}{dt}	=	f(t,x)
+\end{equation}
+の解$x(t)$で，条件
+\begin{equation}
+	x(t_0)=x_0	\label{1.12}
+\end{equation}
+をみたすものを求める問題を\textbf{初期値問題}(initial	value	problem)といい，
+(\ref{1.12})を\textbf{初期条件(initial	condition)}または\textbf{初期データ}という．
+
+\例{1.15}
+初期値問題
+$\displaystyle
+	\frac{dx}{dt}	=	tx,	\:	x(0)=1$の解．
+
+$\displaystyle
+	\frac{1}{x}\frac{dx}{dt}=t$より
+$\displaystyle
+	\int_{x(0)}^{x(1)}	\frac{dx}{x}=\frac{1}{2}t^2$.
+よって，$x(t)=e^{t^2/2}$.
+
+初期値問題の解の存在は次のように保証されている．
+
+\定理{1.16}
+(ペロンの存在定理)　
+$r>0,\:	R>0$とする．$\R^n$値関数$f(t,x)$が，
+$|t-t_0|	\leqq	r$，$\|	\boldsymbol{x}-\boldsymbol{x}_0\|	\leqq	R$で連続なとき，初期値問題
+\begin{equation}
+	\begin{cases}	\displaystyle
+		\frac{dx}{dt}=f(t,\boldsymbol{x})	\\
+													\\
+		\boldsymbol{x}(t_0)	=	\boldsymbol{x}_0	\\	
+	\end{cases}
+	\label{1.13}
+\end{equation}
+は，$t=t_0$の近くで解$\boldsymbol{x}(t)$をもつ．
+
+\注意{1.17}
+「$t=t_0$の近くで解$x(t)$をもつ」とは，
+	解$x(t)$が少なくとも，$t_0-\delta	\leqq	t	\leqq	t_0+\delta$で定義されることである．
+この証明は付録に述べる．ただし，
+\begin{equation}
+	\delta =	\min	\{	r,R/M	\},	\quad
+	M=\max_{|t-t_0|	\leq	r,\|	\boldsymbol{x}	-	\boldsymbol{x}_0\|	\leq	R}	\|f(t,\boldsymbol{x})\|.
+\end{equation}
+
+上の定理1.16で存在が保証される，$t=t_0$の近くで定義された解を\textbf{局所解}
+(local solution)という．また，もし$|t-t_0|	\leqq	r$全体で定義された解があれば，
+\textbf{大域解}(global	solution)という．
+
+（保留）
+
+上の例1.20のように，解が“枝分かれ”するものは，そのことを積極的に利用することもあるが，
+一般には望ましいことではない．
+
+例1.20が示すように，定理1.16は，解がただ１つであることを保証していない．一般に保証
+するのは次の条件である．
+
+\定義{1.21}
+$\R^{n+1}$の部分集合$D$で定義された，$\R^n$値連続関数$f(t,x)$が\textbf{リプシッツ(Lipschitz)条件}をみたすとは，
+ある定数$L$に対して，次の不等式が成り立つことをいう．
+\begin{equation}
+		\|f(t,y)-f(t,x)\|	\leqq	L\|y-x\|	\quad	((t,x),(t,y)	\in	D).	\label{1.15}
+\end{equation}
+この定数$L$を\textbf{リプシッツ定数}という．
+
+\例{1.22}
+$D=\{	(t,x)	\in	\R	\times	\R^n;	|t-t_0	|		\leqq	r,	\:
+																	\|x-x_0	\|	\leqq	R\}
+$で，$\R^n$値連続関数$f(t,x)$が$x=(x_1,x_2,\cdots,x_n)$について連続微分可能ならば，
+\[	
+	L=\max_{(t,x)\in	D}
+			\left(
+				\sum_{i=1}^n	
+					\left\|	
+						\frac{\partial	f}{\partial	x_i}(t,x)	
+					\right\|^2
+			\right)^{1/2}									
+\]
+をリプシッツ定数として，(\ref{1.15})が成り立つ．実際，
+\[
+	f(t,y)-f(t,x)
+		=\sum_{i=1}^n	
+			\left(
+				\int_0^1	\frac{\partial	f}{\partial	x_i}(t,x+s(y-x))ds
+			\right)
+			(y_i-x_i)
+\]	
+(アダマールの変形)にシュワルツの不等式をを適用すれば(\ref{1.15})がわかる．
+\□
+
+\定理{1.23}
+(コーシー(Cauchy)の存在と一意性の定理)
+$f(t,x)$が
+\[
+	D=\{\:(t,x)	\:	|	\:	t	\in	\R,	
+										\:	\boldsymbol{x}	\in	\R^n,	
+										\:	|t-t_0|	\leqq	r,
+										\:	\|\boldsymbol{x}-\boldsymbol{x}_0	\|	\leqq	R	\:	\}
+\]
+で定義された$\R^n$値連続関数で，リプシッツ条件(\ref{1.15})をみたすとき，初期値問題
+(\ref{1.13})の局所解$\boldsymbol{x}(t)	\:	(t-t_0	\leqq	\delta)$はただ１つ存在する．
+\□
+

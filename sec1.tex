@@ -1,0 +1,197 @@
+\chapter{ユークリッド空間上のハミルトン・ベクトル場}
+　
+この章ではニュートンの運動方程式について学ぶ．特に，運動方程式がハミルトン方程式と
+呼ばれる常微分方程式であることに着目し，ハミルトン方程式の性質を調べる．
+第１章の内容は，第２章で微分形式の概念を学んだ後，第３章でより深められる．
+第１章の内容は，微積分の初歩だけを用いて導き出すことができる事柄である．
+最後の§1.4では，ハミルトン方程式の調べるための基本的な方法である変分原理を述べる．
+
+\section{ベクトル場と積分曲線}
+
+\textbf{(a)	積分曲線}
+
+ニュートン力学に代表される古典力学的世界像においては，物理法則は微分方程式で
+表わされる．すなわち，ある瞬間における物理状態が変化する割合は，その瞬間における
+その系の状態によって決定される．これをもっとも素直に数式として表わせば，次の形の
+方程式が得られるであろう．
+\begin{equation}
+	\frac{d\boldsymbol{x}}{dt}=\boldsymbol{V}(\boldsymbol{x},t)
+\end{equation}
+ここで$\boldsymbol{x}=\boldsymbol{x}(t)$は時間$t$を変数とするベクトル値関数である．
+古典力学の微分方程式は，(1.1)の形の方程式の中では特別の種類のもので，
+ハミルトン方程式と呼ばれる．それについては次の節以後で述べることにして，少し
+(1.1)の解について論じよう．
+
+(1.1)で，写像$\boldsymbol{V}(\boldsymbol{x},t)$が時間$t$によらない関数
+$\boldsymbol{V}(\boldsymbol{x})$である場合を考えよう．すなわち，方程式
+\begin{equation}
+	\frac{d\boldsymbol{x}}{dt}=\boldsymbol{V}(\boldsymbol{x})
+\end{equation}
+を考える．この形の微分方程式\textbf{自励系}(autonomous system)という．
+自励系を視覚的に見るには\textbf{ベクトル場}(vector field)という考え方が便利である．
+ベクトル場とは，空間の各々の点$\boldsymbol{x}$に対してベクトル$\boldsymbol{V}(\boldsymbol{x})$
+を対応させる写像を指す．ベクトル場を微分方程式(1.2)と見るとき
+\textbf{力学系}(dynamical system)と呼ぶ．
+
+ベクトル場$\boldsymbol{V}(\boldsymbol{x})$の\textbf{積分曲線}(integral curve，解曲線ともいう）
+とは方程式(1.2)の解のことである．すなわち，実数$t$にベクトル$\boldsymbol{x}(t)$を対応させる
+写像で(1.2)をみたすものを積分曲線という．
+
+\pagebreak
+\問{1}
+ベクトル場の積分曲線は自分自身とは交わらない．これはなぜか．
+
+\証明
+
+「自分自身と交わる」と仮定して矛盾を導く．$\boldsymbol{x}(t)$をベクトル場$\boldsymbol{V}(\boldsymbol{x})$
+の積分曲線で「自分自身と交わる」とする．すると，
+\[
+	\frac{d	\boldsymbol{x}(t)}{dt}	=	\boldsymbol{V}(\boldsymbol{x})
+\]
+を満たす．$\boldsymbol{x}(t)$は「自分自身と交わる」ので
+\[
+	\boldsymbol{x}(t_0)	=	\boldsymbol{x}(t_1)
+\]
+となる$t_0,t_1$が存在し，$\boldsymbol{x}'(t_0)	\ne	\boldsymbol{x}'(t_1)$である．よって
+$\boldsymbol{x}(t_0)	=	\boldsymbol{x}(t_1)$に対して，
+$\boldsymbol{x}'(t_0)$	と	$\boldsymbol{x}'(t_1)$が対応していることになり，
+$\boldsymbol{V}$が写像であることに反する．
+\■
+
+\問{2}
+自励系でない場合は積分曲線は自分自身と交わることがありうる．そのような例を挙げよ．
+
+\解
+例えば，
+$\displaystyle
+	\boldsymbol{V}(x,y,z,t)=\left(	-y,x,\cos\frac{t}{2}	\right)
+$
+とおくと，
+$\displaystyle	\boldsymbol{l}=\left(\cos	t,	\sin	t,	2\sin\frac{t}{2}	\right)$
+は解である．これは$\boldsymbol{l}(0)=\boldsymbol{l}(2\pi)$で自分自身と交わる．
+
+\□
+
+ベクトル場$\boldsymbol{V}(\boldsymbol{x})=-\boldsymbol{x}$
+（成分で書けば$\boldsymbol{V}(x,y)=(-x,-y))$を考えると，このベクトル場の積分曲線は
+微分方程式
+\begin{equation}
+	\frac{d\boldsymbol{x}}{dt}=-\boldsymbol{x}
+\end{equation}
+の解である．(1.3)の解は$(x(t),y(t))=(C_1	e^{-t},C_2	e^{-t})$である．
+（ここで$C_1,C_2$は定数），すなわち，変数（この場合は時間$t$）によらない数である．
+$C_1,C_2$を決めるには初期条件（ある時刻での系の状態）を指定すればよい．
+例えば$t=0$で$\displaystyle{x}(0)=(x_0,y_0)$とすると，
+$\boldsymbol{x}(t)=(x_0	e^{-1},y_0	e^{-1})$が解になる．
+ベクトル場$\boldsymbol{V}(\boldsymbol{x})=-\boldsymbol{x}$とその積分曲線を
+図示すると図\ref{fig1.1}のようになる．接線の定義から分かるように，積分曲線は各点でベクトル場（の像）
+に接している．
+\begin{figure}[htbp]
+\begin{center}
+\setlength{\unitlength}{6mm}
+\begin{picture}(8,8)
+
+	%座標軸
+	%\thicklines\put(0,4){\vector(1,0){8}}
+	%\thicklines\put(4,0){\vector(0,1){8}}
+
+	%O
+	\put(3.5,3.5){$O$}
+	
+	\thinlines	\put(8,8){\vector(-1,-1){0.8}}
+	\thinlines	\put(8,7){\vector(-4,-3){0.7}}
+	\thinlines	\put(8,6){\vector(-2,-1){0.6}}
+	\thinlines	\put(8,5){\vector(-4,-1){0.5}}
+	\thinlines	\put(8,4){\vector(-1,-0){0.45}}
+	\thinlines	\put(8,3){\vector(-4,	1){0.5}}
+	\thinlines	\put(8,2){\vector(-2,	1){0.6}}
+	\thinlines	\put(8,1){\vector(-4,	3){0.7}}
+	\thinlines	\put(8,0){\vector(-1, 1){0.8}}
+	
+	\thinlines	\put(7,8){\vector(-3,-4){0.6}}
+	\thinlines	\put(7,7){\vector(-1,-1){0.6}}
+	\thinlines	\put(7,6){\vector(-3,-2){0.5}}
+	\thinlines	\put(7,5){\vector(-4,-1){0.45}}
+	\thinlines	\put(7,4){\vector(-1,-0){0.35}}
+	\thinlines	\put(7,3){\vector(-4,	1){0.45}}
+	\thinlines	\put(7,2){\vector(-3,	2){0.5}}
+	\thinlines	\put(7,1){\vector(-1,	1){0.6}}
+	\thinlines	\put(7,0){\vector(-3, 4){0.6}}
+
+	\thinlines	\put(6,8){\vector(-1,-2){0.4}}
+	\thinlines	\put(6,7){\vector(-2,-3){0.4}}
+	\thinlines	\put(6,6){\vector(-1,-1){0.4}}
+	\thinlines	\put(6,5){\vector(-2,-1){0.33}}
+	\thinlines	\put(6,4){\vector(-1,-0){0.25}}
+	\thinlines	\put(6,3){\vector(-2,	1){0.33}}
+	\thinlines	\put(6,2){\vector(-1,	1){0.4}}
+	\thinlines	\put(6,1){\vector(-2,	3){0.4}}
+	\thinlines	\put(6,0){\vector(-1, 2){0.4}}
+
+	\thinlines	\put(5,8){\vector(-1,-4){0.15}}
+	\thinlines	\put(5,7){\vector(-1,-3){0.2}}
+	\thinlines	\put(5,6){\vector(-1,-2){0.25}}
+	\thinlines	\put(5,5){\vector(-1,-1){0.3}}
+	\thinlines	\put(5,4){\vector(-1,-0){0.35}}
+	\thinlines	\put(5,3){\vector(-1,	1){0.3}}
+	\thinlines	\put(5,2){\vector(-1,	2){0.25}}
+	\thinlines	\put(5,1){\vector(-1,	3){0.2}}
+	\thinlines	\put(5,0){\vector(-1, 4){0.15}}
+
+	\thinlines	\put(4,8){\vector(0,-4){0.6}}
+	\thinlines	\put(4,7){\vector(0,-3){0.5}}
+	\thinlines	\put(4,6){\vector(0,-2){0.4}}
+	\thinlines	\put(4,5){\vector(0,-1){0.35}}
+	\thicklines	\put(4,4){\circle{0.1}}
+	\thinlines	\put(4,3){\vector(0, 1){0.35}}
+	\thinlines	\put(4,2){\vector(0, 2){0.4}}
+	\thinlines	\put(4,1){\vector(0, 3){0.5}}
+	\thinlines	\put(4,0){\vector(0, 4){0.6}}
+
+	\thinlines	\put(3,8){\vector(1,-4){0.15}}
+	\thinlines	\put(3,7){\vector(1,-3){0.2}}
+	\thinlines	\put(3,6){\vector(1,-2){0.25}}
+	\thinlines	\put(3,5){\vector(1,-1){0.3}}
+	\thinlines	\put(3,4){\vector(1,-0){0.35}}
+	\thinlines	\put(3,3){\vector(1, 1){0.3}}
+	\thinlines	\put(3,2){\vector(1, 2){0.25}}
+	\thinlines	\put(3,1){\vector(1, 3){0.2}}
+	\thinlines	\put(3,0){\vector(1, 4){0.15}}
+
+	\thinlines	\put(2,8){\vector(1,-2){0.4}}
+	\thinlines	\put(2,7){\vector(2,-3){0.4}}
+	\thinlines	\put(2,6){\vector(1,-1){0.4}}
+	\thinlines	\put(2,5){\vector(2,-1){0.35}}
+	\thinlines	\put(2,4){\vector(1,-0){0.25}}
+	\thinlines	\put(2,3){\vector(2, 1){0.35}}
+	\thinlines	\put(2,2){\vector(1, 1){0.4}}
+	\thinlines	\put(2,1){\vector(2, 3){0.4}}
+	\thinlines	\put(2,0){\vector(1, 2){0.4}}
+
+	\thinlines	\put(1,8){\vector(3,-4){0.6}}
+	\thinlines	\put(1,7){\vector(1,-1){0.6}}
+	\thinlines	\put(1,6){\vector(3,-2){0.5}}
+	\thinlines	\put(1,5){\vector(4,-1){0.45}}
+	\thinlines	\put(1,4){\vector(1,-0){0.35}}
+	\thinlines	\put(1,3){\vector(4, 1){0.45}}
+	\thinlines	\put(1,2){\vector(3, 2){0.5}}
+	\thinlines	\put(1,1){\vector(1, 1){0.6}}
+	\thinlines	\put(1,0){\vector(3, 4){0.6}}
+
+	\thinlines	\put(0,8){\vector(1,-1){0.8}}
+	\thinlines	\put(0,7){\vector(4,-3){0.7}}
+	\thinlines	\put(0,6){\vector(2,-1){0.6}}
+	\thinlines	\put(0,5){\vector(4,-1){0.5}}
+	\thinlines	\put(0,4){\vector(1,-0){0.45}}
+	\thinlines	\put(0,3){\vector(4, 1){0.5}}
+	\thinlines	\put(0,2){\vector(2, 1){0.6}}
+	\thinlines	\put(0,1){\vector(4, 3){0.7}}
+	\thinlines	\put(0,0){\vector(1, 1){0.8}}
+
+	\thinlines	\path(8,8)(4,4)
+							\put(8,8){積分曲線の1つ}
+\end{picture}
+\caption[積分曲線]{\normalsize	ベクトル場$\boldsymbol{V}(\boldsymbol{x})=-\boldsymbol{x}$とその積分曲線}
+\end{center}
+\label{fig1.1}
+\end{figure}

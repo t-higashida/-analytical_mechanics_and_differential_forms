@@ -1,0 +1,220 @@
+\chapter{微分方程式とその解}
+
+微分方程式は微分積分の概念とともに，ニュートンによる古典力学における
+運動方程式や，ほぼ同時代のライプニッツたちの曲線の研究の中から誕生してきた．
+この章では，常微分方程式とその解の概念に定義を与え，その意味を理解し，
+簡単な場合に微分方程式を解いて見る．最後に，初等関数を微分方程式により
+特徴づける．なお，初期値問題の解の存在および一意性については
+定理の意味の理解を最優先し，その証明は付録で与える．
+
+\section{古典力学と微分方程式}
+
+ある関数$F(t,x_1,x_2,	\cdots,	x_{p+1})$が与えれられたとき，未知関数$x(t)$に対する
+関係式
+\begin{equation}
+	F	\left(	t,
+						x(t),
+						\frac{dx}{dt}(t),
+						\cdots,
+						\frac{d^px}{dt^p}(t)
+	\right)
+	=0
+	\label{eq1x1}
+\end{equation}
+を\textbf{常微分方程式}(ordinary differntial equation),自然数$p$をその\textbf{階数}（order）
+という．また，$p$回微分可能な関数$x(t)$が(\ref{eq1x1})を満たすとき，
+$x(t)$はこの常微分方程式(\ref{eq1x1})の\textbf{解}（solution）であるという．
+
+例えば，
+\begin{align}
+	&\frac{dx}{dt}			=x,		\label{eq1x2}	\\
+	&\frac{d^2x}{dt^2}	=-x	\label{eq1x3}
+\end{align}
+はそれぞれ，1階，2階の常微分方程式であり，
+\begin{alignat*}{2}
+	x(t)	&=Ce^t									&\qquad	&\text{($C$は定数)},	\\
+	x(t)	&=A	\sin	t	+	B	\cos t 	&\qquad	&\text{($A,B$は定数)},	\\
+\end{alignat*}
+はそれぞれの常微分方程式の解である．
+
+(\ref{eq1x1})において，$x(t)$や$F$はベクトル値でもよい．例えば，
+\begin{equation}
+	\frac{d x}{d t}	=\begin{pmatrix}
+										x_1	-	x_1	x_2	\\
+									-x_2	+	x_1x_2
+									\end{pmatrix},
+					x	=	\begin{pmatrix}
+								x_1	\\	x_2
+							\end{pmatrix}
+\label{eq1ｘ4}
+\end{equation}
+も1階の常微分方程式である．
+
+微分方程式は，古典力学および微分積分学とともに成立した．その萌芽は
+ガリレオ・ガリレイの仕事に見られる．
+
+物体を自由落下させるとき，$t$秒後までの落下距離を$s(t)$とすれば，
+$t$秒後から$(t+h)$秒後までの平均速度の極限
+\[
+	v(t)	=	\lim_{h\rightarrow	0}	\frac{s(t+h)	-	s(t)}{h}
+\]
+が時刻$t$における瞬間落下速度であり，その速度の平均変化率が一定，
+つまり，
+\[
+	\frac{v(t+h)	-	v(t)}{h}	=	g	\quad	(	\text{$g$は重力定数})	
+\]
+となること，そして解が$s(t)	=	gt^2	/2$であることが『新科学対話』（岩波文庫）
+の中に述べられている．
+
+
+微分の概念を用いれば，上のことは，
+\begin{equation}
+	\begin{cases}
+		\:	\displaystyle	\frac{ds}{dt}	=	v,	\quad	s(0)	=	0	\\
+\\
+		\:	\displaystyle	\frac{dv}{dt}	=	g,	\quad	v(0)	=	0
+	\end{cases}
+\label{eq1x5}
+\end{equation}
+と表わされ，(\ref{eq1x5})の第2式を積分して，$g(0)=0$より，
+\[
+	v(t)	=	gt.
+\]
+次に，これを第1式に代入して積分すれば，$s(0)	=	0$より，
+\[
+	s=	\frac{1}{2}	gt^2
+\]
+が得られる．（ガリレイはこれを3角形の面積を用いて導いた．）
+
+古典力学は，ニュートンの方程式によって確立された．原点に万有引力の中心があるとき，
+時刻$t$における質点の位置$q$と速度$v$は次の微分方程式をみたす．
+\begin{equation}
+	\begin{cases}
+		\:	\displaystyle	\frac{dq}{dt}	=	v	\\
+\\
+		\:	\displaystyle	\frac{dv}{dt}	=	-	\frac{q}{|q|^3}
+	\end{cases}
+	\quad
+	q	=	\begin{pmatrix}
+					q_1	\\	q_2	\\	q_3
+			\end{pmatrix},
+		\:\:
+	v	=	\begin{pmatrix}
+					v_1	\\	v_2	\\	v_3
+			\end{pmatrix}
+\label{eq1x6}
+\end{equation}
+（第2式に現れるべき物理定数を$1$としている．）
+
+この方程式から，次のことがただちにわかる．（$\langle	,	\rangle$は内積を表す．）
+\begin{list}{}{}
+	\item	（ⅰ）	$\displaystyle	E=\frac{1}{2}	|v|^2	-	\frac{1}{|q|}$（運動エネルギーと位置エネルギーの和）とおくと，
+$\displaystyle	\grad	\frac{1}{|q|}	=	\grad	\frac{1}{\sqrt{q_1^2+q_2^2+q_3^2}}
+=	-\frac{1}{q_1^2+q_2^2+q_3^2}	\frac{1}{2	\sqrt{q_1^2+q_2^2+q_3^2}}	(2	q_1	,	2	q_2,	2	q_3)	
+=	-\frac{q}{|q|^3}
+$だから，
+\begin{align*}
+	\frac{dE	}{dt}	&=	\left\langle	v	,	\frac{dv}{dt}	\right\rangle	-	\left\langle	-\frac{q}{|q|^3},	\frac{dq}{dt}	\right\rangle	\\
+									&=	\left\langle	v,	-\frac{q}{|q^3|}\right\rangle	+	\left\langle	\frac{q}{|q|^3}	,	v	\right\rangle	=0
+\end{align*}
+よって，$E$は定数（エネルギー保存則）．
+	\item	（ⅱ）$A	=	q	\times	v$（$q$と$v$の外積，角運動量という）とおくと，
+\[
+	\frac{dA}{dt}	=	\frac{dq}{dt}	\times	v	+	q	\times	\frac{dv}{dt}	=	v	\times	v	+	q	\times	\left(	-	\frac{q}{|q|^3}	\right)	=	0.
+\]
+よって，$A$は\underline{定ベクトル}である．これからの次のことがわかる．
+	\begin{list}{}{}
+	\item	(1)	$q,v$は平面$\{q	\in	\R^3	\:	|	\:	\text{$q$は$A$と直交}	\}$を動く．
+	\item	(2)	$\|	q(t)	\times	q(t+h)	\|$は2つのベクトル$q(t),q(t+h)$が張る平行4辺形の面積であり，
+$q(t)	\times	q(t)=0$を介して，
+\[
+	\lim_{h	\rightarrow 0}	\frac{1}{h}q(t)	\times	q(t+h)	=	\lim_{h \rightarrow 0}	q(t)	\times	\frac{q(t+h)	-	q(t)}{h}	
+	=	q(t)	\times	v(t)	\equiv	A.
+\]
+（面積速度一定の法則）
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 200,clip,width=74.2mm,height=58.4mm]{fig1x1.bmp}
+	\caption{面積速度一定}
+	\label{fig1x1}
+\end{figure}
+\end{list}
+\end{list}
+歴史上，チコ・ブラーエの観測データから，ケプラーによって見出された経験法則が，
+ニュートンの方程式によってすべて説明できることになった．
+
+\定義{1.1}
+上の$E$や$A$の各成分のように，微分方程式の解に沿って一定である関数を，この微分方程式の
+\textbf{第1積分}（first integral）という．
+\□
+
+一般に，常微分方程式は，
+\begin{equation}
+	\frac{d x}{d t}	f(t,x)
+\label{eq1x7}
+\end{equation}
+成分ごとに書けば，
+\[
+	\begin{cases}
+\:	\displaystyle		\frac{d x_1}{d t}	=	f_1(t,x_1,	x_2,	\cdots	,	x_n)	\\
+\\
+\:	\displaystyle		\frac{d x_2}{d t}	=	f_1(t,x_1,	x_2,	\cdots	,	x_n)	\\
+\\
+\:	\cdots	\\
+\\
+\:	\displaystyle		\frac{d x_n}{d t}	=	f_1(t,x_1,	x_2,	\cdots	,	x_n)
+	\end{cases}
+\quad	\quad	(1.7')
+\]
+の形に書かれているとき，\textbf{正規形}または\textbf{標準形}（normal form）であるという．
+（\ref{eq1x1}）の形の常微分方程式は，陰関数定理を用いて
+\[
+	\frac{d^p x}{d t^p}	=	g	\left(	t,	x,	\frac{d x}{d t}	,	\cdots	,	\frac{d^{p-1}	x}{dt^{p-1}}
+													\right)
+\]
+と解くことができれば，次の例のようにして正規形に書き直すことができる．
+
+\例{1.2}
+$\displaystyle	\frac{d^2 x}{d t^2}	=	g\left(	t,x,	\frac{dx}{dt}	\right)$のとき，
+$\displaystyle	x_1	=	x	,	x_2	=	\frac{dx}{dt}$とおくと，
+\[
+	\frac{dx_1}{dt}=	x_2	,	\quad	\frac{dx_2}{dt}	=	g(t,x_1,	x_2).
+\]
+よって，この方程式は次のような正規形に書ける．
+\[
+	\frac{d}{dt}	
+			\begin{pmatrix}
+				x_1	\\	x_2
+			\end{pmatrix}
+		=	\begin{pmatrix}
+				x_2	\\	g(t	,	x_1	,	x_2	)
+			\end{pmatrix}.
+\]
+\□
+
+正規形の方程式の右辺$f(t,x)$が$t$によらず，
+\begin{equation}
+	\frac{d x}{d t}	=	f(x)
+\label{eq1x8}
+\end{equation}
+の形に書けるときは，\textbf{自励系}（autonomous）であるという．
+
+自励的で正規形の微分方程式（\ref{eq1x8}）については，$x(t)$が解であることを次にように言い換えることができる．
+\begin{list}{}{}
+	\item	（ⅰ）$x(t)$は微分可能な曲線であって，
+	\item	（ⅱ）その後ベクトル$\displaystyle	\frac{dx	}{dt	}(t)$がベクトル$f(x(t))$に等しい．
+\end{list}
+
+このように解$x(t)$を$t$の助変数とする曲線と考えたとき，\textbf{解曲線}（solution	curve）という．
+また，各点$x	=	(x_1,	x_2,	\cdots	,	x_n)$において，ベクトル
+\[
+	f(x)	=	(f_1	(x_1,	x_2,	\cdots	,	x_n),	f_2(	x_1,	x_2,	\cdots,	x_n),	\cdots	,	f_n	(	x_1,	x_2,	\cdots	,	x_n))
+\]
+が与えられたとき，$f(x)$を\textbf{ベクトル場}（vector field）という．
+
+なお，力学の問題のように，$t$を時間と考えるときには，$x(t)$を\textbf{解軌道}（trajectory または orbit）
+ということもある．
+
+\注意{}
+ベクトルは本来，縦に並べて書くべきであるが，紙数の都合上，以下，横ベクトルで表わすことが多い．
+

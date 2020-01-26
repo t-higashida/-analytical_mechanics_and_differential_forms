@@ -1,0 +1,96 @@
+#include<stdio.h>
+#include<math.h>
+//#include<float.h>
+
+#define DELTA_X	0.25
+#define DELTA_Y	0.25
+double	r_1(double	t){
+	//return	1/sqrt(1+exp(-2*t));
+	return	1/sqrt(1+exp(-0.4*t));
+}
+double	r_2(double	t){
+	//return	1/sqrt(1-0.00000000206115362243856*exp(-0.5*t));
+		return	1/sqrt(1-0.00000614421235332821*exp(-0.4*t));
+}
+void main(void){
+
+	/*----------------------*/
+	/*	座標軸の始点，終点	*/
+	/*----------------------*/
+	static	struct	{
+		double	x,y,length;
+	}	axis[]	=	{	{-5,0,10},
+								{0,-4,8},
+							};
+
+	/*----------------------*/
+	/*	座標軸の始点，終点	*/
+	/*----------------------*/
+	double	dt,delta=0.1;
+
+	/*--------------------*/
+	/*texコマンド環境出力	*/
+	/*--------------------*/
+	printf("\\documentclass{jarticle}\n");
+	printf("\\usepackage{epic,eepic} \n");
+	printf("\\begin{document}\n");
+	printf("\\begin{figure}[htbp]\n");
+	printf("\\begin{center}\n");
+	printf("\\setlength{\\unitlength}{25mm}\n");
+	printf("\\begin{picture}(5,2)\n");
+
+	/*----------------------*/
+	/*座標軸の出力実行			*/
+	/*----------------------*/
+	//printf("\t	\\thicklines	\\put(	%4.2f,	%4.2f	)\{\\vector(1,0){	%4.2f	}}\n",axis[0].x,axis[0].y,axis[0].length);
+	//printf("\t	\\thicklines	\\put(	%4.2f,	%4.2f	)\{$x$}\n",axis[0].x+axis[0].length+0.1,axis[0].y);
+	//printf("\t	\\thicklines	\\put(	%4.2f,	%4.2f	)\{\\vector(0,1){	%4.2f	}}\n",axis[1].x,axis[1].y,axis[1].length);
+	//printf("\t	\\thicklines	\\put(	%4.2f,	%4.2f	)\{$y$}\n",axis[1].x,axis[1].y+axis[1].length+0.1);
+
+	//printf("\t	\\thicklines	\\put(	-0.5,	-0.5	)\{$O$}\n");
+
+	/*----------------------*/
+	/*曲線の出力実行				*/
+	/*----------------------*/
+	printf("\t	\\thicklines\n");
+	printf("\t	\\put(0,0)\{\\circle\{2\}\}\n");
+
+	printf("\t	\\thinlines\n");
+	
+	delta=0.05;
+	for(dt=-10.5;dt<4.00;dt=dt+delta){
+		printf("\t	\\path(	%4.2f,	%4.2f	)(	%4.2f,	%4.2f	)	\n"	,r_1(dt)*sin(dt)
+																															,r_1(dt)*cos(dt)
+																															,r_1(dt+delta)*sin(dt+delta)
+																															,r_1(dt+delta)*cos(dt+delta));
+	}
+	
+	printf("\t	\\thinlines\n");
+
+	//for(dt=-29.95;dt<-29.0;dt=dt+delta){
+	//	printf("\t	\\path(	%4.2f,	%4.2f	)(	%4.2f,	%4.2f	)	\n"	,r_2(dt)*sin(dt)
+	//																														,r_2(dt)*cos(dt)
+	//																														,r_2(dt+delta)*sin(dt+delta)
+	//																														,r_2(dt+delta)*cos(dt+delta));
+	//
+	//}
+	delta=0.05;
+	for(dt=-29.0;dt<-22.5;dt=dt+delta){
+		printf("\t	\\path(	%4.2f,	%4.2f	)(	%4.2f,	%4.2f	)	\n"	,r_2(dt)*sin(dt)
+																															,r_2(dt)*cos(dt)
+																															,r_2(dt+delta)*sin(dt+delta)
+																															,r_2(dt+delta)*cos(dt+delta));
+	}
+
+	//for(dx=-.3;dx>-5;dx=dx-delta){
+	//	printf("\t	\\path(	%4.2f,	%4.2f	)(	%4.2f,	%4.2f	)	\n",dx,1/dx,dx-delta,1/(dx-delta));
+	//}
+
+	/*--------------------*/
+	/*texコマンド環境出力	*/
+	/*--------------------*/
+	printf("\\end{picture}\n");
+	printf("\\end{center}\n");
+	printf("\\end{figure}\n");
+	printf("\\end{document}\n");
+}

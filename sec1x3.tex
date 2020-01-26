@@ -1,0 +1,193 @@
+\section{2次元空間上の運動}
+
+\textbf{(a)　平面上の運動}
+この節では，物体が2次元空間を運動するときの様子を考察する．物体の座標で
+$(x_1,x_2)$と表そう．すると運動方程式は
+\begin{equation}
+	\begin{cases}
+		\displaystyle	\frac{d^2x_1}{dt^2}	=	F_1	\\
+		\\
+		\displaystyle	\frac{d^2x_2}{dt^2}	=	F_2	\\
+	\end{cases}
+	\label{eq1x14}
+\end{equation}
+と表される．前節同様，力$(F_1,F_2)$は$(x_1,x_2)$だけにより，その微分にはよらないとする．
+さらにポテンシャルが存在する，つまり
+\[
+	(F_1,F_2)	=	-	\grad	V	
+						=	-\left(
+								\frac{\partial	V}{\partial	x_1},	
+								\frac{\partial	V}{\partial	x_2},	
+							\right)
+\]
+となるような$(x_1,x_2)$の関数$V$が存在すると仮定する．（2次元の場合には，
+任意の$(F_1,F_2)$に対してこのような$V$が存在するわけではなかった．本講座
+『電磁場とベクトル解析』参照．)
+
+ハミルトニアンを
+\begin{equation}
+	H(q_1,q_2,p_1,p_2)=\frac{p_1^2+p_2^2}{2}	+	V(q_1,q_2)
+	\label{eq1x15}
+\end{equation}
+で定義する．ここで$\displaystyle	q_i=x_i,	p_i=\frac{dx_i}{dt}	\:	(i=1,2)$である．	
+
+$\R^4$に関数$H$が与えられたとき，ハミルトニアン$H$に対するハミルトニアン方程式とは，
+次の形の常微分方程式である．
+\begin{equation}
+	\begin{cases}
+		\displaystyle	\frac{dq_i}{dt}	=	\frac{\partial	H}{\partial	p_i}	\quad	(i=1,2)	\\
+		\\
+		\displaystyle	\frac{dp_i}{dt}	=	-\frac{\partial	H}{\partial	q_i}	\quad	(i=1,2)	\\
+	\end{cases}
+	\label{eq1x16}
+\end{equation}
+(\ref{eq1x16})に(\ref{eq1x15})のハミルトニアンを当てはめると
+\[
+	\begin{cases}
+		\displaystyle	\frac{dq_i}{dt}=p_i	\quad	(i=1,2)	\\
+		\\
+		\displaystyle	\frac{dp_i}{dt}=F_i	\quad	(i=1,2)	\\
+	\end{cases}
+\]
+となって運動方程式(\ref{eq1x14})に一致する．したがって，運動方程式(\ref{eq1x14})は
+(\ref{eq1x15})のハミルトニアンに対するハミルトン方程式とみなせる．
+
+\例{1.10}
+ニュートンによる重力理論では，原点に重い物体があるとき，
+$(q_1,q_2)$にある質点に働く重力理論は，大きさが
+$\displaystyle	\frac{GmM}{q_1^2+q_2^2}$で方向は原点を向いている．
+式で書くと
+\[
+	(F_1,F_2)=-\frac{GmM}{(q_1^2+q_2^2)^{3/2}}(q_1,q_2)
+\]
+である．($m$は運動する質点の，$M$は原点に置かれた物体の質量で，
+$G$は重力定数である．$M$が$m$より十分大きい場合を考え，中心に置かれた物体へ，
+運動する質点の及ぼす力は無視した.)これに対するポテンシャルは
+\begin{equation}
+	V(q_1,q_2)=-\frac{GmM}{\sqrt{q_1^2+q_2^2}}
+	\label{eq1x17}
+\end{equation}
+である．このポテンシャルに対して(\ref{eq1x15})を書くと，
+\begin{equation}
+	\begin{cases}
+		\displaystyle	\frac{dq_i}{dt}=p_i	&	(i=1,2)	\\
+		\\
+		\displaystyle	\frac{dp_i}{dt}=	-\frac{GmM}{(q_1^2+q_2^2)^{3/2}}q_i	&	(i=1,2)	\\
+	\end{cases}
+	\label{eq}
+\end{equation}
+である．この方程式が，原点に置かれた物体からの重力のもとで，2次元空間内を運動する質点
+に対する運動方程式である．
+\□
+2次元の場合も定理1.15(エネルギー保存法則)は成立する．すなわち，
+
+\定理{1.11}
+$H$は(\ref{eq1x16})の積分曲線の上で定数である．すなわち，
+$(q_1(t),q_2(t),p_1(t),p_2(t))$を方程式(\ref{eq1x16})の解とすると
+\[
+	\frac{dH(q_1(t),q_2(t),p_1(t),p_2(t))}{dt}=0.
+\]
+\□
+証明は定理1.5とまったく同じである．さて，定理1.11があると，§1.2でやったようにして
+方程式(\ref{eq1x16})を解くことが出来るであろうか？．実はそうはいかない．
+理由を考えるために§1.2のやり方を復習しよう．
+
+まず，ハミルトニアンが積分曲線上で定数であることを証明する．次に，集合$H=C$を考えると，
+これは1次元である.(これは2次元の空間上でハミルトン系を考えていることの帰結である.)
+したがって，曲線$H=C$上でハミルトン・ベクトル場が消えなければ，
+$H=C$は積分曲線と一致する．後はパラメタ$C$を決めれば良い．
+
+この方法をこの節の問題に当てはめようとすると，困るのは集合$H=C$が今度は
+1次元ではなく3次元になってしまう点である．したがって，$H=C$が積分曲線と一致する
+ことはあり得ない．
+
+一般に，積分曲線上で定数であるような関数を\textbf{第一積分}(first integral)という．
+
+\定義{1.12}
+$\R^4$上の関数$G:\R^4	\rightarrow	\R$がハミルトン方程式(\ref{eq1x16})の
+\textbf{第一積分}であるとは，(\ref{eq1x16})の任意の積分曲線$(q_1(t),q_2(t),p_1(t),p_2(t))$に対して
+次の式が成り立つことをいう．
+\[
+	\frac{dG(q_1(t),q_2(t),p_1(t),p_2(t)}{dt}=0
+\]
+\□
+
+\例{1.13}
+ハミルトニアン$H$はそれが定めるハミルトン方程式の第1積分である．
+\□
+
+さて，2自由度の場合に1自由度と違って現れる問題として上でのべたことは，
+1自由度の場合には第1積分を1つ求めれば解が求められたが，2自由度であると
+1個では不十分である，ということである．ハミルトニアンそのものが第1積分なのであるから，
+1つめの第1積分はすぐ見つかる．2自由度(やそれより自由度が多い)の場合に，
+ハミルトニアン以外の第1積分をどうやて見つけたらよいであろうか.実は第1積分を組織的に求める
+アルゴリズムはない.一般には十分は数の第1積分がない例もある.
+
+\textbf{(b)　角運動量}
+
+一般論はしばらくおいて，例1.10すなわち重力場のもとで平面上の物体の運動の場合，(\ref{eq1x18})に
+第1積分を見つけよう．そのために，ケプラーの法則を思い出そう．
+
+\textbf{ケプラーの法則}
+\begin{list}{}{}
+	\item	(ⅰ)　惑星は楕円軌道を描き，太陽はその焦点の1つと一致する.
+	\item	(ⅱ)　枠線の時刻$t$での位置と太陽を結ぶ線分$L_t$を考え，この線分$L_t$が
+							$t_0	\leqq	t	\leqq	t_1$の間に通る平面の部分面積を$\text{Area}(t_0,t_1)$と書くと，
+							$\text{Area}(t,t+C)$は$C$のみにより$t$によらない(図\ref{fig1x7}).
+	\item	(ⅲ)　惑星が太陽の周りを回るのにかかる時間の2乗は軌道の長軸の長さの3乗に比例する.
+\end{list}
+\□
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 600,clip,width=10cm,height=6cm]{fig1x7.bmp}
+	\caption{面積速度一定の法則}
+	\label{fig1.7}
+\end{figure}
+この2番目の法則を面積速度一定の法則という．これより，無限小に移ると
+$\displaystyle	\lim_{\varepsilon	\rightarrow	0}
+	\frac{\text{Area}(t,t+\varepsilon }{\varepsilon }$
+は$t$によらない．
+よって
+$\displaystyle	
+	\lim_{\varepsilon \rightarrow	0}
+		\frac{\text{Area}(t,t+\varepsilon )}{\varepsilon }$
+を$q_i(t)$とその微分$\displaystyle	p_i(t)=\frac{d	q_i}{dt}(t)$で表すことができれば，
+これが第1積分である．
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[bb=0 0 800 600,clip,width=6cm,height=4cm]{fig1x8.bmp}
+	\caption{各運動量}
+	\label{fig1.8}
+\end{figure}
+図(\ref{fig1.8})を見ると，$\varepsilon $が小さければ，面積
+$\text{Area}(t,t+\varepsilon )$は$q(t)$,$q(t+\varepsilon )$，$0$がなす
+3角形の面積に近い．この3角形の面積の2倍はおおよそ$\varepsilon (q_1p_2-q_2p_1)$
+である．以後$\boldsymbol{q}	\times	\boldsymbol{p}=q_1p_2	-	q_2p_1$と書く．よって
+\[
+	\lim_{\varepsilon \rightarrow	0}	\frac{2	\text{Area}(t,t+\varepsilon )}{\varepsilon }
+	=	\boldsymbol{q}(t)	\times	\boldsymbol{p}(t).
+\]
+ここで求めた量$\boldsymbol{q}(t)	\times	\boldsymbol{p}(t)$のことを
+\textbf{角運動量}(angular	momentum)という．
+以上の議論を要約するとケプラーの第2法則は角運動量保存法則を導く，となる．
+
+歴史的順序から言えば，ケプラーの法則が発見されたのが先である，ニュートンの重力理論と
+運動方程式を生んだ主要な観測結果であった．いずれにしても，論理的順序から言えば，
+我々は角運動量が重力場のもとでの運動について保存されることを，証明しなければならない．
+これをもう少し一般的な仮定の下で証明しよう．
+
+\定義{1.14}
+$V(q_1,q_2)$が\textbf{中心力場のポテンシャル}であるとは，1変数関数$K$があって，
+$V(q_1,q_2)=K(\sqrt{q_1^2+q_2^2})$と表されることをいう．
+\□
+\定理{1.15}
+$V(q_1,q_2)$を中心力場のポテンシャルとし，
+\[
+	H=\frac{\|	\boldsymbol{p}	\|^2}{2}	+	V
+\]
+なるハミルトニアンを考えると，角運動量
+\[
+	A(\boldsymbol{q},\boldsymbol{p})	=	\boldsymbol{q}	\times	\boldsymbol{p}
+\]
+は$H$が定めるハミルトン系の第1積分である．
+\□
